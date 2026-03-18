@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import profile from "../assets/profile.png";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiMail, FiCopy, FiCheck, FiExternalLink } from "react-icons/fi";
@@ -55,26 +56,42 @@ const skills: Skill[] = [
   { title: "User Flow & Interaction Design", desc: "Information hierarchy • Reduced friction • Clear pathways" },
 ];
 
-const revealUp = {
+const revealUp: Variants = {
   hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const staggerWrap = {
-  hidden: {},
   visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.03 },
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
   },
 };
 
-const itemUp = {
+const staggerWrap: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.03,
+    },
+  },
+};
+
+const itemUp: Variants = {
   hidden: { opacity: 0, y: 14 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
 };
 
 const jiggleHover = {
   rotate: [0, -1.2, 1.2, -0.8, 0.8, 0],
-  y: [0, -1, 0],
   transition: { duration: 0.35 },
 };
 
@@ -253,7 +270,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                 className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs font-semibold text-black/70 backdrop-blur
                            dark:bg-white/5 dark:border-white/10 dark:text-white/75"
               >
@@ -267,7 +284,7 @@ export default function Home() {
               <motion.h1
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
+                transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
                 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-black/90 dark:text-white/90"
               >
                 Frontend Engineer building <br className="hidden md:block" />
@@ -277,7 +294,7 @@ export default function Home() {
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut", delay: 0.08 }}
+                transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1], delay: 0.08 }}
                 className="mt-5 text-sm md:text-base text-black/60 dark:text-white/60"
               >
                 React • TypeScript • Modern JavaScript • UI/UX-driven development
@@ -289,7 +306,7 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.35 }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
+                transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
                 className="mt-12 max-w-4xl scroll-mt-32"
               >
                 <h2 className="text-xl font-semibold text-black/90 dark:text-white/85">About</h2>
@@ -331,7 +348,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.14 }}
+                  transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1], delay: 0.14 }}
                   className="mt-8 flex flex-wrap items-center gap-3"
                 >
                   <a
@@ -384,7 +401,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
               className="w-full max-w-[320px] mx-auto lg:mx-0"
             >
               <div className="bg-white border border-black/10 rounded-3xl shadow-[0_18px_55px_rgba(0,0,0,0.12)] p-2 dark:bg-white/5 dark:border-white/10">
@@ -401,7 +418,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.25 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
+            transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-12 scroll-mt-32"
           >
             <div className="flex items-end justify-between gap-4">
@@ -443,7 +460,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
+            transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-16 scroll-mt-32"
           >
             <div>
@@ -516,7 +533,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
+            transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-16 scroll-mt-32"
           >
             <div>
@@ -537,7 +554,7 @@ export default function Home() {
                   type="button"
                   onClick={() => handleUXCardClick(cs)}
                   variants={itemUp}
-                  whileHover={{ y: -2, scale: 1.01, ...jiggleHover }}
+                  whileHover={{ scale: 1.01, y: -2, ...jiggleHover }}
                   transition={{ type: "spring", stiffness: 420, damping: 28 }}
                   className="group text-left rounded-2xl border border-black/10 bg-white shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.10)] transition overflow-hidden
                              dark:bg-white/5 dark:border-white/10 dark:shadow-none"
@@ -568,7 +585,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
+            transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-16 scroll-mt-32"
           >
             <div className="flex items-end justify-between gap-4">
@@ -662,7 +679,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.25 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
+            transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-16 border-t border-black/10 pt-12 scroll-mt-32 dark:border-white/10"
           >
             <h2 className="text-lg font-semibold text-black/80 dark:text-white/80">Contact</h2>
@@ -782,7 +799,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 18, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 18, scale: 0.98 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
               onClick={(e) => e.stopPropagation()}
               role="dialog"
               aria-modal="true"
