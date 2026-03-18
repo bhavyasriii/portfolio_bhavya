@@ -1,16 +1,13 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss";
+
 export default {
-  
+  darkMode: "class", // ✅ REQUIRED
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-        colors: {
-            brand:"#3C3B371",
-        },
-    },
+    extend: {},
   },
   plugins: [],
-}
+} satisfies Config;
