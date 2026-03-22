@@ -215,6 +215,7 @@ export default function Home() {
   const githubUrl = "https://github.com/bhavyasriii";
   const linkedinUrl = "https://www.linkedin.com/in/bhavyasri-m-593aa6214/";
   const resumeUrl = "/images/Bhavyasri_Resume_Frontend_main.pdf";
+  const certificateUrl = "https://www.coursera.org/account/accomplishments/specialization/certificate/J7SG3XBTPKW1";
 
   const copyEmail = async () => {
     try {
@@ -265,6 +266,7 @@ export default function Home() {
             />
           </div>
 
+          {/* HERO */}
           <div className="relative flex flex-col lg:flex-row lg:items-start gap-12">
             <div className="flex-1">
               <motion.div
@@ -300,6 +302,7 @@ export default function Home() {
                 React • TypeScript • Modern JavaScript • UI/UX-driven development
               </motion.p>
 
+              {/* ABOUT */}
               <motion.section
                 id="about"
                 variants={revealUp}
@@ -345,11 +348,45 @@ export default function Home() {
                   ))}
                 </div>
 
+                <motion.a
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1], delay: 0.12 }}
+                  href={certificateUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ y: -2 }}
+                  className="group mt-6 flex max-w-[340px] items-center gap-4 rounded-2xl border border-black/10 bg-white/80 px-4 py-4 text-left shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition hover:shadow-[0_18px_45px_rgba(0,0,0,0.10)]
+                             dark:border-white/10 dark:bg-white/5 dark:shadow-none"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/10">
+                    <img
+                      src="/images/google-g-logo.png"
+                      alt="Google"
+                      className="h-8 w-8 object-contain"
+                    />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <div className="text-xs font-medium text-black/45 dark:text-white/45">
+                      Certification
+                    </div>
+                    <div className="mt-1 text-sm font-semibold text-black/85 dark:text-white/85">
+                      Google UX Design
+                    </div>
+                    <div className="mt-1 text-xs text-black/50 dark:text-white/50">
+                      Verified via Coursera
+                    </div>
+                  </div>
+
+                  <FiExternalLink className="shrink-0 text-black/40 transition group-hover:text-black dark:text-white/40 dark:group-hover:text-white" />
+                </motion.a>
+
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1], delay: 0.14 }}
-                  className="mt-8 flex flex-wrap items-center gap-3"
+                  className="mt-6 flex flex-wrap items-center gap-3"
                 >
                   <a
                     href={resumeUrl}
@@ -398,6 +435,7 @@ export default function Home() {
               </motion.section>
             </div>
 
+            {/* Profile image */}
             <motion.div
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -412,6 +450,7 @@ export default function Home() {
 
           <div className="mt-14 border-t border-black/10 dark:border-white/10" />
 
+          {/* SKILLS */}
           <motion.section
             id="skills"
             variants={revealUp}
@@ -454,6 +493,7 @@ export default function Home() {
             </div>
           </motion.section>
 
+          {/* PROJECTS */}
           <motion.section
             id="projects"
             variants={revealUp}
@@ -527,6 +567,7 @@ export default function Home() {
             </motion.div>
           </motion.section>
 
+          {/* UX */}
           <motion.section
             id="ux"
             variants={revealUp}
@@ -579,6 +620,7 @@ export default function Home() {
             </motion.div>
           </motion.section>
 
+          {/* MOTION EXPERIMENTS */}
           <motion.section
             id="motion"
             variants={revealUp}
@@ -673,6 +715,7 @@ export default function Home() {
 
           <FigmaEmbed />
 
+          {/* CONTACT */}
           <motion.section
             id="contact"
             variants={revealUp}
@@ -785,6 +828,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* UX Modal */}
       <AnimatePresence>
         {activeUX && (
           <motion.div
