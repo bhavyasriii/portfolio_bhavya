@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
-import profile from "../assets/profile.png";
+import profile from "../assets/profile.jpeg";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
