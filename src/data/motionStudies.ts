@@ -25,12 +25,21 @@ export const motionStudies: MotionStudy[] = [
   },
 
   // ✅ Add more designs like this (point to other mp4 files in /public/motion/)
-  // {
-  //   id: "nike-hover",
-  //   title: "Nike Card Hover Study",
-  //   tag: "Micro-interaction • Hover",
-  //   summary: "A subtle hover lift + glow + image parallax study for product cards.",
-  //   videoSrc: "/motion/nike-hover.mp4",
-  //   bullets: ["Hover → lift", "Glow → focus", "Image parallax → depth"],
-  // },
+     {
+  id: "outfit-carousel",
+  title: "AI Outfit Recommendation Carousel",
+  tag: "UI Interaction • Motion-driven browsing",
+  summary:
+    "A motion-driven carousel experience designed to guide users through outfit recommendations using peek interaction, auto-swiping, and depth-based focus.",
+
+  videoSrc: "/motion/outfit-carousel.mp4",
+
+  bullets: [
+    "Peek interaction reveals adjacent options for better discoverability",
+    "Auto-swiping creates a guided, effortless browsing flow",
+    "Center card remains in focus while side cards are scaled and blurred",
+    "Dynamic background tones enhance visual storytelling",
+    "Designed to reduce decision fatigue and improve exploration"
+  ],
+},
 ];

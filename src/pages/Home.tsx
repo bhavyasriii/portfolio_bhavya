@@ -8,7 +8,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiMail, FiCopy, FiCheck, FiExternalLink } from "react-icons/fi";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-import FigmaEmbed from "../components/FigmaEmbed";
+
 
 type Skill = { title: string; desc: string };
 
@@ -141,14 +141,14 @@ export default function Home() {
 
   const uxCases: UXCaseStudy[] = useMemo(
     () => [
-      {
+      /*{
         id: "coffeehouse",
         title: "CoffeeHouse Group Ordering",
         tag: "Mobile UX • Ordering flow",
         summary: "Designed a faster group ordering experience to reduce wait time and improve pickup.",
         image: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1200&q=80&auto=format&fit=crop",
         bullets: ["Problem → ordering takes too long", "Solution → group order & pickup flow", "Outcome → faster, collaborative ordering"],
-      },
+      },*/
       {
         id: "grocery",
         title: "Local Grocery Store Web App",
@@ -157,14 +157,14 @@ export default function Home() {
         image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200&q=80&auto=format&fit=crop",
         bullets: ["Availability before visiting", "Simple checkout flow", "Trust-driven UI patterns"],
       },
-      {
+      /*{
         id: "careerwise",
         title: "CareerWise AI Assistant",
         tag: "Product UX • AI",
         summary: "Clean experience for resume feedback + JD match with calm, clear next actions.",
         image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80&auto=format&fit=crop",
         bullets: ["Upload → analyze → improve", "Match score + insights", "Reduced cognitive load"],
-      },
+      },*/
       {
         id: "appointment",
         title: "Patient Appointment Booking",
@@ -620,100 +620,164 @@ export default function Home() {
             </motion.div>
           </motion.section>
 
-          {/* MOTION EXPERIMENTS */}
-          <motion.section
-            id="motion"
-            variants={revealUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-16 scroll-mt-32"
-          >
-            <div className="flex items-end justify-between gap-4">
-              <div>
-                <h2 className="text-lg font-semibold text-black/80 dark:text-white/80">Motion Experiments</h2>
-                <div className="mt-1 text-xs text-black/45 dark:text-white/45">Click a card to view the full gallery →</div>
-              </div>
+          {/* MOTION SHOWCASE */}
+<motion.section
+  id="motion"
+  variants={revealUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, amount: 0.2 }}
+  transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
+  className="mt-24 scroll-mt-32"
+>
+  <div className="mx-auto max-w-6xl">
+    <div className="max-w-2xl">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-black/45 dark:text-white/45">
+        Motion & Interaction
+      </p>
+      <h2 className="mt-3 text-2xl md:text-3xl font-semibold leading-tight text-black/85 dark:text-white/85">
+        Selected interaction studies designed to feel alive, guided, and cinematic
+      </h2>
+      <p className="mt-3 text-sm md:text-base leading-relaxed text-black/55 dark:text-white/55">
+        A curated set of motion explorations focused on storytelling, hierarchy, and browsing behavior.
+      </p>
+    </div>
 
-              <button
-                type="button"
-                onClick={() => navigate("/motion")}
-                className="hidden sm:inline-flex items-center gap-2 rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90
-                           dark:bg-white dark:text-black"
-              >
-                View All
-                <FiExternalLink />
-              </button>
+    <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-12">
+      {/* Featured AirPods tile */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        whileHover={{ y: -6, scale: 1.008 }}
+        transition={{ type: "spring", stiffness: 280, damping: 24 }}
+        className="group lg:col-span-7 overflow-hidden rounded-[30px] border border-black/10 bg-white shadow-[0_22px_60px_rgba(0,0,0,0.08)]
+                   dark:bg-white/5 dark:border-white/10 dark:shadow-none"
+      >
+        <div className="relative aspect-[1.08/1] overflow-hidden bg-black">
+          <video
+            src={publicUrl("/motion/airpods-motion.mp4")}
+            className="h-full w-full object-cover scale-[1.01] brightness-[1.02] transition-transform duration-500 group-hover:scale-[1.03]"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
+
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/82 via-black/22 to-transparent" />
+
+          <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
+            <div className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/65">
+              Product storytelling
             </div>
+            <h3 className="mt-2 text-xl md:text-2xl font-semibold text-white">
+              Product Hero Transition Study
+            </h3>
+            <p className="mt-3 max-w-lg text-sm md:text-[15px] leading-relaxed text-white/82">
+              A cinematic transition study focused on pacing, scale, and reveal to guide attention from abstraction to clarity.
+            </p>
+          </div>
+        </div>
+      </motion.div>
 
+      {/* Outfit carousel tile */}
+      <div className="lg:col-span-5 flex flex-col gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          whileHover={{ y: -6, scale: 1.01 }}
+          transition={{ type: "spring", stiffness: 280, damping: 24 }}
+          className="group overflow-hidden rounded-[30px] border border-black/10 bg-white shadow-[0_22px_60px_rgba(0,0,0,0.08)]
+                     dark:bg-white/5 dark:border-white/10 dark:shadow-none"
+        >
+          <div className="relative aspect-[0.9/1.1] overflow-hidden bg-black">
+            <video
+              src={publicUrl("/motion/AI_Outfit.mp4")}
+              className="h-full w-full object-cover scale-[1.02] brightness-[1.05] transition-transform duration-500 group-hover:scale-[1.04]"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+            />
+
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+              <div className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/65">
+                UI browsing behavior
+              </div>
+              <h3 className="mt-2 text-xl md:text-2xl font-semibold text-white">
+                AI Outfit Recommendation Carousel
+              </h3>
+              <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-white/82">
+                Peek-based carousel interaction using depth, auto-motion, and visual hierarchy to make browsing feel guided and effortless.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Supporting chips */}
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            "Peek interaction",
+            "Auto-swiping flow",
+            "Depth hierarchy",
+            "Guided browsing",
+          ].map((item) => (
             <motion.div
-              variants={staggerWrap}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+              key={item}
+              whileHover={{ y: -2, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 320, damping: 24 }}
+              className="rounded-2xl border border-black/10 bg-white/70 px-4 py-4 text-sm font-medium text-black/70 shadow-[0_10px_24px_rgba(0,0,0,0.04)]
+                         dark:bg-white/5 dark:border-white/10 dark:text-white/70 dark:shadow-none"
             >
-              {motionStudies.map((m) => {
-                const src = publicUrl(m.videoSrc);
-
-                return (
-                  <motion.button
-                    key={m.id}
-                    type="button"
-                    onClick={() => navigate("/motion")}
-                    variants={itemUp}
-                    whileHover={{ y: -2, scale: 1.01 }}
-                    transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="text-left rounded-2xl border border-black/10 bg-white shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.10)] transition overflow-hidden
-                             dark:bg-white/5 dark:border-white/10 dark:shadow-none"
-                  >
-                    <div className="h-44 w-full bg-black/5 dark:bg-white/5 relative">
-                      <video
-                        key={src}
-                        className="h-full w-full object-cover"
-                        muted
-                        loop
-                        playsInline
-                        controls
-                        preload="auto"
-                        onLoadedData={(e) => {
-                          const v = e.currentTarget;
-                          v.play().catch(() => {});
-                        }}
-                      >
-                        <source src={src} type="video/mp4" />
-                      </video>
-
-                      <div className="pointer-events-none absolute bottom-3 left-3">
-                        <span className="text-[11px] font-semibold text-black/40 dark:text-white/35 bg-white/70 dark:bg-black/40 px-3 py-1 rounded-full border border-black/10 dark:border-white/10">
-                          Click to open gallery
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-4">
-                      <div className="text-xs text-black/45 dark:text-white/45">{m.tag}</div>
-                      <div className="mt-1 text-sm font-semibold text-black/85 dark:text-white/85">{m.title}</div>
-                      <div className="mt-2 text-xs text-black/60 leading-relaxed line-clamp-2 dark:text-white/60">{m.summary}</div>
-                    </div>
-                  </motion.button>
-                );
-              })}
+              {item}
             </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</motion.section>
+{/* UI INTERACTION STUDY */}
+<div className="mt-12">
+  <div className="max-w-2xl">
+    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-black/45 dark:text-white/45">
+      UI Interaction Study
+    </p>
+    <h3 className="mt-3 text-2xl md:text-3xl font-semibold leading-tight text-black/85 dark:text-white/85">
+      Interactive prototype exploring motion-driven product storytelling
+    </h3>
+    <p className="mt-3 text-sm md:text-base leading-relaxed text-black/55 dark:text-white/55">
+      A live interaction study focused on guided browsing, card transitions, and visual storytelling through motion.
+    </p>
+  </div>
 
-            <button
-              type="button"
-              onClick={() => navigate("/motion")}
-              className="mt-5 sm:hidden inline-flex items-center gap-2 rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90
-                         dark:bg-white dark:text-black"
-            >
-              View All Motion Experiments
-              <FiExternalLink />
-            </button>
-          </motion.section>
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
+    className="mt-8 overflow-hidden rounded-[30px] border border-black/10 bg-white shadow-[0_22px_60px_rgba(0,0,0,0.08)]
+               dark:bg-white/5 dark:border-white/10 dark:shadow-none"
+  >
+    <div className="p-6 md:p-8">
+      <div className="relative overflow-hidden rounded-[24px] bg-[#edf3f8] dark:bg-[#0f172a]">
+        <iframe
+          title="UI Interaction Study"
+          src="\motion\Fortune_five.mp4"
+          className="block h-[720px] w-full"
+          allowFullScreen
+        />
+      </div>
+    </div>
+  </motion.div>
+</div>
 
-          <FigmaEmbed />
+
 
           {/* CONTACT */}
           <motion.section
